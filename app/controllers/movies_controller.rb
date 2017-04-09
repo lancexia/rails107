@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user! , only: [:new]
+  before_action :authenticate_user! , only: [:new, :create]
 
 
   def index
@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
+    @movie = current_user
     if @movie.save
      redirect_to movies_path
      flash[:notice] =  "生成新电影"
