@@ -9,9 +9,12 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to movies_path
-    flash[:notice] =  "生成新电影"
+    if @movie.save
+     redirect_to movies_path
+     flash[:notice] =  "生成新电影"
+    else
+      render :new
+    end
   end
 
   def show
