@@ -14,6 +14,10 @@ class MoviesController < ApplicationController
     flash[:notice] =  "生成新电影"
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+  end
+
 
 
 
