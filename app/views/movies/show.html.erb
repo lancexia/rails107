@@ -1,8 +1,10 @@
 <span class="pull-right">
   <% if current_user && current_user.is_member_of?(@movie) %>
     <label class="label label-success"> 群组成员 </label>
+    <%= link_to("Quit Movie", quit_movie_path(@movie), method: :review, class: "btn btn-default") %>
   <% else %>
     <label class="label label-warning"> 不是群组成员 </label>
+    <%= link_to("Join Movie", join_movie_path(@movie), method: :review, class: "btn btn-default") %>
   <% end %>
 </span>
 <div class="col-md-12">
