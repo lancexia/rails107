@@ -8,6 +8,15 @@ Rails.application.routes.draw do
 
     resources :reviews
   end
+
+  namespace :account do
+    resources :movies
+  end
+
+
+
+
+
   root'movies#index'
 
 
